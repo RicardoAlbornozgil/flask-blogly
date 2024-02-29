@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
 
-# Initialize SQLAlchemy
+# Initialize SQLAlchemy and connect to database.
 connect_db(app)
 
 # Configure Debug Toolbar
@@ -22,6 +22,10 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 toolbar = DebugToolbarExtension(app)
 
+# Seed database
+from seed import seed_database
+with app.app_context():
+    seed_database()
 
 @app.route('/')
 def root():

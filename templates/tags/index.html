@@ -4,17 +4,20 @@
 
 {% block content %}
 
-<h1>Tags</h1>
+<div class="container">
+    <h1>Tags</h1>
 
-<ul>
-  {% for tag in tags %}
-  <li class="no-bullet"><a href="/tags/{{ tag.id }}">{{ tag.name }}</a></li>
-  {% endfor %}
-</ul>
-<form>
-  <button class="btn btn-primary"
-          formmethod="GET"
-          formaction="/tags/new">Add Tag
-  </button>
-</form>
+    <ul class="list-group">
+        {% for tag in tags %}
+        <li class="list-group-item">
+            <a href="/tags/{{ tag.id }}">{{ tag.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <form method="GET" action="/tags/new">
+        <button type="submit" class="btn btn-primary mt-3">Add Tag</button>
+    </form>
+</div>
+
 {% endblock %}

@@ -4,18 +4,18 @@
 
 {% block content %}
 
-<h1>Users</h1>
+<div class="container">
+    <h1>Users</h1>
 
-<ul>
-  {% for user in users %}
-  <li class="no-bullet">
-    <a href="/users/{{ user.id }}">{{ user.full_name }}</a>
-  </li>
-  {% endfor %}
-</ul>
+    <ul class="list-group">
+      {% for user in users %}
+      <li class="list-group-item">
+        <a href="/users/{{ user.id }}">{{ user.full_name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
 
-<button class="btn btn-primary">
-  <p><a  class="btn btn-primary" href="/users/new">Add user</a></p>
-</button>
+    <a href="/users/new" class="btn btn-primary mt-3">Add User</a>
+</div>
 
 {% endblock %}

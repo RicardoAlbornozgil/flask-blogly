@@ -1,39 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="/static/app.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogly</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="/static/app.css">
+</head>
 
-    <body>
-   
-      
-        <header>
-        
-            {% block title %} {% endblock%}
-        
-        </header>
-        <nav>
-                    <div class="nav-div">
-                        <a href="/">Homepage</a>
-                    </div>
-                    <div class="nav-div">
-                        <a href="/tags">Tags</a>
-                    </div>
-                    <div class="nav-div">
-                        <a href="/users">Users</a>
-                    </div>
-                    
+<body>
+    <header>
+        <!-- Bootstrap Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Blogly</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Homepage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">Tags</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users">Users</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
-    
-        <main>
-            {% block content %} {% endblock%}
-        </main>
-        <footer>
-            <p>Blogly blogspace </p>
-        </footer>
-    </body>
+    </header>
+
+    <main class="container mt-4">
+        <!-- Content Block -->
+        {% block content %} {% endblock%}
+    </main>
+
+    <footer class="bg-light text-center py-3">
+        <p>Blogly blogspace</p>
+    </footer>
+
+    <!-- Bootstrap JS (optional, if you need it for certain components) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
 </html>
